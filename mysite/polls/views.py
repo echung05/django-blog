@@ -6,7 +6,7 @@ from django.utils import timezone
 from django.views.generic.edit import FormView
 from .forms import ThoughtsForm
 
-from .models import Choice, Question
+from .models import Choice, Question, Thought
 
 
 class IndexView(generic.ListView):
@@ -62,4 +62,8 @@ class ThoughtsView(FormView):
 
 
 def thoughts_list(request):
-    return HttpResponse("You're looking at thoughts list.")
+    queryset = Thought.objects.all()
+    context = {
+        "thoughts_list": queryset
+    }
+    return render(request, "polls/thoughtslist.html", context)

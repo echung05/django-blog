@@ -1,0 +1,16 @@
+{% load static %}
+
+{% if thoughts_list %}
+<ul>
+    {% for thought in thoughts_list %}
+    <div>
+        <p> Question: {{ thought.question }}<br>
+            Thought: {{ thought.title }}<br>
+            {{ thought.body }}
+        </p>
+    </div>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No thoughts are available.</p>
+{% endif %}

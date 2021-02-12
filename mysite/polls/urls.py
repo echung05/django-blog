@@ -14,6 +14,6 @@ urlpatterns = [
     path('<int:question_id>/vote', views.vote, name='vote'),
     # /polls/thoughts/
     path('thoughts/', views.ThoughtsView.as_view(), name='thought'),
-    # /polls/thoughts/list
-    path('thoughts/list', views.thoughts_list, name='thoughts_list'),
+    # /polls/thoughts/list/
+    path('thoughts/list/', views.thoughts_list, name='thoughts_list'),
 ]
