@@ -1,14 +1,16 @@
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import get_object_or_404, render
 from django.urls import reverse
 from django.views import generic
 from django.utils import timezone
+from django.views.generic.edit import FormView
+from .forms import ThoughtsForm
 
 from .models import Choice, Question
 
 
 class IndexView(generic.ListView):
-    template_name= 'polls/index.html'
+    template_name = 'polls/index.html'
     context_object_name = 'latest_question_list'
 
     def get_queryset(self):
@@ -47,3 +49,17 @@ def vote(request, question_id):
         selected_choice.votes += 1
         selected_choice.save()
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))
+
+
+class ThoughtsView(FormView):
+    form_class = ThoughtsForm
+    template_name = "polls/thoughts.html"
+    success_url = "/polls/thoughts"
+
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
+
+
+def thoughts_list(request):
+    return HttpResponse("You're looking at thoughts list.")
