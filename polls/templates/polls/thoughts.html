@@ -31,11 +31,31 @@
 </nav>
 
 <body>
-    <form method="post" style=>
-        {% csrf_token %}
-        {{ form.as_p }}
-        <input type="submit" value="Submit">
-    </form>
+    <div class="container">
+        <div class="card bg-light mx-auto row justify-content-md-center" style="margin: 4vh; width: 70vw">
+            <form method="post" class="text-center" style="margin-top:15px; margin-bottom: 15px;">
+                {% csrf_token %}
+                <!-- {{ form.as_p }} -->
+                <div class="form-group " style="margin:4vh">
+                    <div>
+                        {{ form.question }}
+                    </div>
+                </div>
+                <div class="form-group" style="margin:4vh">
+                    <div>
+                        {{ form.title }}
+                    </div>
+                </div>
+                <div class="form-group" style="margin:4vh">
+                    <div>
+                        {{ form.body }}
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-secondary"
+                    style="margin=3vh; background-color: #6a9979;">Submit</button>
+            </form>
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
         crossorigin="anonymous"></script>
