@@ -27,3 +27,12 @@ class Choice(models.Model):
 
     def __str__(self):
         return self.choice_text
+
+
+class Thought(models.Model):
+    question = models.CharField(max_length=100)
+    title = models.CharField(max_length=100)
+    body = models.CharField(max_length=500)
+
+    def __str__(self):
+        return self.title
