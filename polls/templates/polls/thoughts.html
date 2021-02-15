@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Deep Thoughts</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+</head>
+
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #a0bf91;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="https://live.staticflickr.com/65535/50943051778_d046a07dce_o.png" width="24" height="24"
+                class="d-inline-block align-top">
+            Deep Thoughts
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link" href="../">Polls</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="">Thoughts</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="list/">Thoughts List</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<body class="d-flex flex-column min-vh-100">
+    <div class="wrapper flex-grow-1">
+        <div class="container">
+            <div class="card bg-light mx-auto row justify-content-md-center" style="margin: 4vh; width: 70vw">
+                <h4 class="card-header text-center">Submit a deep thought.</h4>
+                <form method="post" class="text-center" style="margin-top:15px; margin-bottom: 15px;">
+                    {% csrf_token %}
+                    <!-- {{ form.as_p }} -->
+                    <div class="form-group " style="margin:4vh">
+                        <div>
+                            {{ form.question }}
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin:4vh">
+                        <div>
+                            {{ form.title }}
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin:4vh">
+                        <div>
+                            {{ form.body }}
+                        </div>
+                    </div>
+                    <button type="submit" class="btn"
+                        style="margin-bottom: 2vh; background-color: #a0bf91; color:white">Submit</button>
+                </form>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+            crossorigin="anonymous"></script>
+    </div>
+</body>
+<footer class="bg-light text-center text-lg-start">
+    <div class="text-center p-3" style="background-color:#a0bf91; color:white">
+        © 2021 Copyright Esther Chung (ec2rs)
+    </div>
+</footer>
+
+</html>
